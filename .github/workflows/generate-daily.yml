@@ -1,0 +1,38 @@
+name: Generate today's NEV daily
+
+# 面试现场可在 Actions 页面点击 Run workflow，无需暴露 Worker 的手动触发密钥。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Trigger the protected Worker pipeline
+        env:
+          WORKER_URL: ${{ secrets.WORKER_URL }}
+          MANUAL_TRIGGER_TOKEN: ${{ secrets.MANUAL_TRIGGER_TOKEN }}
+        run: |
+          if [[ -z "${WORKER_URL}" || -z "${MANUAL_TRIGGER_TOKEN}" ]]; then
+            echo "Missing WORKER_URL or MANUAL_TRIGGER_TOKEN repository secret."
+            exit 1
+          fi
+
+          response_file="${RUNNER_TEMP}/nev-daily-response.json"
+          http_code="$(curl --silent --show-error \
+            --output "${response_file}" \
+            --write-out "%{http_code}" \
+            --request POST \
+            --header "Authorization: Bearer ${MANUAL_TRIGGER_TOKEN}" \
+            --header "Content-Type: application/json" \
+            "${WORKER_URL%/}/run")"
+
+          cat "${response_file}"
+          if [[ "${http_code}" -lt 200 || "${http_code}" -ge 300 ]]; then
+            echo "Worker returned HTTP ${http_code}."
+            exit 1
+          fi

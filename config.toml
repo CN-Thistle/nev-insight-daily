@@ -1,0 +1,112 @@
+# NEV Insight Daily - Hugo / Hextra 最小资讯站配置
+baseURL = "https://cn-thistle.github.io/nev-insight-daily/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "NEV Insight Daily"
+timeZone = "Asia/Shanghai"
+
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+hasCJKLanguage = true
+enableInlineShortcodes = true
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+# 通过 Hugo Module 引入 Hextra，无需把主题源码提交到仓库。
+[module]
+  [[module.imports]]
+    path = "github.com/imfing/hextra"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[params]
+  description = "由 Cloudflare Workers AI 每日自动生成的新能源汽车行业资讯站"
+  dateFormat = "2006-01-02"
+  displayUpdatedDate = true
+  externalLinkDecoration = true
+
+  [params.navbar]
+    displayTitle = true
+    displayLogo = false
+
+  [params.footer]
+    displayCopyright = true
+    displayPoweredBy = true
+
+  [params.theme]
+    default = "system"
+    displayToggle = true
+
+  [params.blog]
+    [params.blog.list]
+      displayTags = true
+      sortBy = "date"
+      sortOrder = "desc"
+    [params.blog.article]
+      displayPagination = true
+
+  [params.search]
+    enable = true
+    type = "flexsearch"
+    [params.search.flexsearch]
+      index = "content"
+      tokenize = "forward"
+
+  [params.archives]
+    section = "posts"
+    dateFormat = "01月02日"
+
+[[menu.main]]
+  name = "每日资讯"
+  pageRef = "/posts"
+  weight = 1
+
+[[menu.main]]
+  name = "时间线"
+  pageRef = "/archives"
+  weight = 2
+
+[[menu.main]]
+  name = "分类"
+  pageRef = "/categories"
+  weight = 3
+
+[[menu.main]]
+  name = "标签"
+  pageRef = "/tags"
+  weight = 4
+
+[[menu.main]]
+  name = "关于"
+  pageRef = "/about"
+  weight = 5
+
+[[menu.main]]
+  name = "搜索"
+  weight = 6
+  [menu.main.params]
+    type = "search"
+
+[[menu.main]]
+  name = "GitHub"
+  url = "https://github.com/CN-Thistle/nev-insight-daily"
+  weight = 7
+  [menu.main.params]
+    icon = "github"

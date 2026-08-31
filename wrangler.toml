@@ -1,0 +1,38 @@
+name = "nev-insight-daily-worker"
+main = "worker/src/index.js"
+compatibility_date = "2026-08-01"
+workers_dev = true
+
+# Cloudflare Workers AI 绑定，源码中通过 env.AI.run(...) 调用。
+[ai]
+binding = "AI"
+
+# Cloudflare Cron 使用 UTC。23:00 UTC = 次日北京时间 07:00。
+[triggers]
+crons = ["0 23 * * *"]
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[vars]
+ENVIRONMENT = "production"
+GITHUB_OWNER = "CN-Thistle"
+GITHUB_REPO = "nev-insight-daily"
+GITHUB_BRANCH = "main"
+GITHUB_API_VERSION = "2022-11-28"
+GITHUB_COMMITTER_NAME = "NEV Daily Bot"
+GITHUB_COMMITTER_EMAIL = "nev-daily-bot@users.noreply.github.com"
+AI_MODEL = "@cf/meta/llama-3.1-8b-instruct-fast"
+ARTICLE_TIME_ZONE = "Asia/Shanghai"
+LOOKBACK_HOURS = "36"
+MAX_ITEMS_PER_SOURCE = "8"
+MAX_ARTICLES = "15"
+FETCH_TIMEOUT_MS = "12000"
+
+# 可选：用 JSON 数组覆盖源码中的默认 RSS 列表。留空则使用内置配置。
+RSS_SOURCES_JSON = ""
+
+# GITHUB_TOKEN 和 MANUAL_TRIGGER_TOKEN 属于敏感信息，不要写在此文件。
+# 线上请执行：wrangler secret put GITHUB_TOKEN
+# 可选手动触发接口密钥：wrangler secret put MANUAL_TRIGGER_TOKEN

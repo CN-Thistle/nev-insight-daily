@@ -1,0 +1,21 @@
+{
+  "name": "nev-insight-daily",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.19.0",
+  "description": "Cloudflare Workers AI 驱动的新能源汽车行业自动资讯站",
+  "scripts": {
+    "test": "node --test worker/test/*.test.js",
+    "worker:dev": "wrangler dev",
+    "worker:deploy": "wrangler deploy",
+    "worker:tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "4.127.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

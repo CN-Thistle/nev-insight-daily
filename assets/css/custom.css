@@ -1,0 +1,137 @@
+:root {
+  --nev-accent: #16a779;
+  --nev-accent-strong: #0f7f5d;
+  --nev-ink: #10231d;
+}
+
+.dark {
+  --nev-accent: #43d5a4;
+  --nev-accent-strong: #8ce9ca;
+  --nev-ink: #eefcf7;
+}
+
+.nev-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 2.5rem 0 2rem;
+  padding: clamp(2rem, 7vw, 5rem);
+  border: 1px solid rgba(22, 167, 121, 0.22);
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(67, 213, 164, 0.3), transparent 26%),
+    linear-gradient(135deg, rgba(22, 167, 121, 0.14), rgba(22, 167, 121, 0.03));
+}
+
+.nev-hero::after {
+  content: "";
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  right: -8rem;
+  bottom: -10rem;
+  border: 1px solid rgba(22, 167, 121, 0.25);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2.5rem rgba(22, 167, 121, 0.05), 0 0 0 5rem rgba(22, 167, 121, 0.03);
+}
+
+.nev-eyebrow {
+  margin-bottom: 1rem;
+  color: var(--nev-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.nev-hero h1 {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--nev-ink);
+  font-size: clamp(2.2rem, 6vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.nev-hero p {
+  max-width: 44rem;
+  margin: 1.5rem 0 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.nev-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.nev-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid rgba(22, 167, 121, 0.35);
+  border-radius: 999px;
+  color: var(--nev-accent-strong);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.nev-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.75rem 2rem rgba(22, 167, 121, 0.16);
+}
+
+.nev-button-primary {
+  border-color: var(--nev-accent);
+  background: var(--nev-accent);
+  color: #fff;
+}
+
+.nev-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0 0 3rem;
+}
+
+.nev-metrics > div {
+  padding: 1.25rem;
+  border: 1px solid rgba(128, 128, 128, 0.18);
+  border-radius: 1rem;
+}
+
+.nev-metrics strong,
+.nev-metrics span {
+  display: block;
+}
+
+.nev-metrics strong {
+  color: var(--nev-accent-strong);
+  font-size: 1.45rem;
+}
+
+.nev-metrics span {
+  margin-top: 0.25rem;
+  color: #73817c;
+  font-size: 0.86rem;
+}
+
+@media (max-width: 640px) {
+  .nev-hero {
+    margin-top: 1rem;
+    border-radius: 1.4rem;
+  }
+
+  .nev-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nev-button {
+    transition: none;
+  }
+}
+
