@@ -333,9 +333,13 @@ export async function collectRssArticles(sources, options) {
 async function fetchRssSource(source, options) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort("RSS fetch timeout"), options.fetchTimeoutMs);
+  // Cloudflare Runtime 的全局 fetch 对 this 上下文敏感。
+  // 先取为局部函数再调用，避免 options.fetchImpl(...) 把 options 错误地绑定为 this，
+  // 否则线上会抛出 Illegal invocation，导致所有 RSS 源同时失败。
+  const fetchImpl = options.fetchImpl;
 
   try {
-    const response = await options.fetchImpl(source.url, {
+    const response = await fetchImpl(source.url, {
       headers: {
         Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
         "User-Agent": USER_AGENT,
