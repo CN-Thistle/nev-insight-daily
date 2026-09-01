@@ -38,6 +38,9 @@ jobs:
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # 首次部署时自动把仓库 Pages 来源切换为 GitHub Actions。
+          enablement: true
 
       - name: Install Hugo Extended
         run: |
@@ -68,4 +71,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
