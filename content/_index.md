@@ -14,11 +14,7 @@ toc: false
   </div>
 </div>
 
-<div class="nev-metrics">
-  <div><strong>07:00</strong><span>每日自动发布</span></div>
-  <div><strong>5 类</strong><span>行业主题归档</span></div>
-  <div><strong>0 人工</strong><span>端到端自动化</span></div>
-</div>
+{{< nev-metrics >}}
 
 ## 关注板块
 

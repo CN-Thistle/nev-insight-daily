@@ -1,0 +1,21 @@
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- $dailyCount := len $posts -}}
+{{- $newsCount := 0 -}}
+
+{{- range $posts -}}
+  {{- /* 每条资讯在日报中对应一个三级标题，累加后得到历史收录总量。 */ -}}
+  {{- $newsCount = add $newsCount (len (findRE `(?m)^###\s+[0-9]+\.` .RawContent)) -}}
+{{- end -}}
+
+{{- $lastUpdated := "暂无" -}}
+{{- if gt $dailyCount 0 -}}
+  {{- $postsByDate := $posts.ByDate.Reverse -}}
+  {{- $latestPost := index $postsByDate 0 -}}
+  {{- $lastUpdated = $latestPost.Date.Format "2006.01.02" -}}
+{{- end -}}
+
+<div class="nev-metrics">
+  <div><strong>{{ $lastUpdated }}</strong><span>最近更新</span></div>
+  <div><strong>{{ $dailyCount }} 期</strong><span>已发布日报</span></div>
+  <div><strong>{{ $newsCount }} 条</strong><span>已收录资讯</span></div>
+</div>
