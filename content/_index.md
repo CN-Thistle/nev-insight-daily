@@ -26,8 +26,46 @@ toc: false
   {{< card link="categories/市场销量" title="📈 市场销量" subtitle="销量、价格与竞争格局" >}}
 {{< /cards >}}
 
-## 一条完全自动化的内容流水线
-
-`RSS 抓取` → `规则预去重` → `Workers AI 加工` → `Hugo Markdown` → `GitHub API 提交` → `GitHub Pages 发布`
-
-所有日报保留原始来源链接。AI 只负责压缩信息与整理结构，不替代原始报道。
+<section class="nev-source-showcase" aria-labelledby="nev-sources-title">
+  <figure class="nev-poster">
+    <img src="./images/nev-sketch-poster.jpg" width="1536" height="1024" loading="lazy" decoding="async" alt="手绘新能源汽车连接充电桩，远处是绿色城市、风力发电机与电池结构" />
+    <figcaption>
+      <span class="nev-poster-mark" aria-hidden="true">✦</span>
+      <span>
+        <strong>把行业噪声，整理成每日信号</strong>
+        <small>整车 · 电池 · 自动驾驶 · 政策 · 市场销量</small>
+      </span>
+    </figcaption>
+  </figure>
+  <div class="nev-source-panel">
+    <div class="nev-source-kicker"><span aria-hidden="true"></span> PUBLIC RSS SOURCES</div>
+    <h2 id="nev-sources-title">新闻从哪里来</h2>
+    <p class="nev-source-intro">默认接入 7 条公开 RSS，覆盖中文产业动态与海外电动车报道。</p>
+    <div class="nev-source-group">
+      <div class="nev-source-heading">
+        <span class="nev-source-index">01—05</span>
+        <span><strong>Google 新闻 RSS</strong><small>5 个主题检索</small></span>
+      </div>
+      <div class="nev-source-tags">
+        <a href="https://news.google.com/rss/search?q=%E6%96%B0%E8%83%BD%E6%BA%90%E6%B1%BD%E8%BD%A6%20when%3A1d&amp;hl=zh-CN&amp;gl=CN&amp;ceid=CN%3Azh-Hans">新能源汽车 <span aria-hidden="true">↗</span></a>
+        <a href="https://news.google.com/rss/search?q=%E5%8A%A8%E5%8A%9B%E7%94%B5%E6%B1%A0%20when%3A1d&amp;hl=zh-CN&amp;gl=CN&amp;ceid=CN%3Azh-Hans">动力电池 <span aria-hidden="true">↗</span></a>
+        <a href="https://news.google.com/rss/search?q=%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%20when%3A1d&amp;hl=zh-CN&amp;gl=CN&amp;ceid=CN%3Azh-Hans">自动驾驶 <span aria-hidden="true">↗</span></a>
+        <a href="https://news.google.com/rss/search?q=%E6%96%B0%E8%83%BD%E6%BA%90%E6%B1%BD%E8%BD%A6%20%E6%94%BF%E7%AD%96%20when%3A2d&amp;hl=zh-CN&amp;gl=CN&amp;ceid=CN%3Azh-Hans">政策 <span aria-hidden="true">↗</span></a>
+        <a href="https://news.google.com/rss/search?q=%E6%96%B0%E8%83%BD%E6%BA%90%E6%B1%BD%E8%BD%A6%20%E9%94%80%E9%87%8F%20when%3A2d&amp;hl=zh-CN&amp;gl=CN&amp;ceid=CN%3Azh-Hans">市场销量 <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="nev-source-links">
+      <a href="https://insideevs.com/rss/news/">
+        <span class="nev-source-index">06</span>
+        <span><strong>InsideEVs</strong><small>全球电动车产品与市场动态</small></span>
+        <span class="nev-source-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a href="https://cleantechnica.com/category/clean-transport-2/electric-vehicles/feed/">
+        <span class="nev-source-index">07</span>
+        <span><strong>CleanTechnica EV</strong><small>清洁交通与电动车行业报道</small></span>
+        <span class="nev-source-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+    <p class="nev-source-note">每篇日报均保留原始报道链接；AI 只负责去重、归类与摘要，不替代原文。</p>
+  </div>
+</section>
