@@ -55,7 +55,7 @@ toc: false
       </div>
     </div>
     <div class="nev-source-links">
-      <a href="https://insideevs.com/rss/news/">
+      <a href="https://insideevs.com/news/">
         <span class="nev-source-index">06</span>
         <span><strong>InsideEVs</strong><small>全球电动车产品与市场动态</small></span>
         <span class="nev-source-arrow" aria-hidden="true">↗</span>
