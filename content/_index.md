@@ -60,7 +60,7 @@ toc: false
         <span><strong>InsideEVs</strong><small>全球电动车产品与市场动态</small></span>
         <span class="nev-source-arrow" aria-hidden="true">↗</span>
       </a>
-      <a href="https://cleantechnica.com/category/clean-transport-2/electric-vehicles/feed/">
+      <a href="https://cleantechnica.com/">
         <span class="nev-source-index">07</span>
         <span><strong>CleanTechnica EV</strong><small>清洁交通与电动车行业报道</small></span>
         <span class="nev-source-arrow" aria-hidden="true">↗</span>
